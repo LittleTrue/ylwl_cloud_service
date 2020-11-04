@@ -1,0 +1,31 @@
+{
+    "name": "gxz/ylwl_cloud_service",
+    "type": "library",
+    "keywords": [
+        "ylwl_cloud_service",
+        "cloud-service"
+    ],
+    "authors": [
+        {
+            "name": "littleTrue",
+            "email": "644812368@qq.com",
+            "homepage": "https://www.jianshu.com/u/8775ddf16c8b"
+        }
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.2",
+        "adbario/php-dot-notation": "^2.0",
+        "pimple/pimple": "v2.1.1",
+        "ext-json": "*"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "YlWlCloud\\YlWlCloudClient\\": "src/client/",
+            "YlWlCloud\\YlWlCloudService\\": "src/service/"
+        }
+    }
+}
