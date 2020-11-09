@@ -8,45 +8,45 @@ use YlWlCloud\YlWlCloudClient\Base\Exceptions\ClientError;
 /**
  * 订单导入API服务.
  */
-class SearchDataService
+class GoodService
 {
     /**
-     * @var SearchDataClient
+     * @var goodClient
      */
-    private $_searchDataClient;
+    private $_goodClient;
 
     public function __construct(Application $app)
     {
-        $this->_searchDataClient = $app['search_data'];
+        $this->_goodClient = $app['good'];
     }
 
     /**
-     * 订单查询.
+     * 新增商品.
      *
      * @throws ClientError
      * @throws \Exception
      */
-    public function searchOrder(array $infos)
+    public function addGood(array $infos)
     {
         if (empty($infos)) {
             throw new ClientError('参数缺失', 1000001);
         }
 
-        return $this->_searchDataClient->searchOrder($infos);
+        return $this->_goodClient->addGood($infos);
     }
 
     /**
-     * 商品货号库查询.
+     * 单个商品推送.
      *
      * @throws ClientError
      * @throws \Exception
      */
-    public function searchGoods(array $infos)
+    public function brushGood(array $infos)
     {
         if (empty($infos)) {
             throw new ClientError('参数缺失', 1000001);
         }
 
-        return $this->_searchDataClient->searchGoods($infos);
+        return $this->_goodClient->brushGood($infos);
     }
 }

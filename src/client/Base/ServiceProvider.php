@@ -6,6 +6,7 @@ use GuzzleHttp\Client as GuzzleHttp;
 use GuzzleHttp\RequestOptions;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Symfony\Component\Cache\Simple\RedisCache;
 
 /**
  * Class ServiceProvider.
@@ -24,6 +25,11 @@ class ServiceProvider implements ServiceProviderInterface
         //注册验证器
         $app['credential'] = function ($app) {
             return new Credential($app);
+        };
+
+        //注册缓存服务
+        $app['cache'] = function ($app) {
+            return new RedisCache($app['config']['redis_client']);
         };
     }
 }

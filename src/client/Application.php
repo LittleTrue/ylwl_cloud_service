@@ -2,8 +2,8 @@
 
 namespace YlWlCloud\YlWlCloudClient;
 
-use YlWlCloud\YlWlCloudClient\Base\Config;
 use Pimple\Container;
+use YlWlCloud\YlWlCloudClient\Base\Config;
 
 /**
  * Class Application.
@@ -15,8 +15,8 @@ class Application extends Container
      */
     protected $providers = [
         Base\ServiceProvider::class,
-        OrderImport\ServiceProvider::class,
-        SearchData\ServiceProvider::class,
+        Login\ServiceProvider::class,
+        Good\ServiceProvider::class,
     ];
 
     /**

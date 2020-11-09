@@ -75,7 +75,6 @@ class BaseClient
         return $this->requestPost($uri, [RequestOptions::JSON => $this->json]);
     }
 
-
     /**
      * @throws ClientError
      */
@@ -85,7 +84,6 @@ class BaseClient
 
         return $this->request('POST', $uri, $options);
     }
-
 
     /**
      * set Headers.
@@ -97,10 +95,9 @@ class BaseClient
         $time = time();
 
         $options[RequestOptions::HEADERS] = [
-            'Content-Type' => 'application/json',
-            'timestamp'    => $time,
-            'Account'      => $this->app['config']->get('Account'),
-            'Password'     => $this->app['config']->get('Password'),
+            'Content-Type'  => 'application/json',
+            'timestamp'     => $time,
+            'Authorization' => $this->app['config']->get('Authorization'),
         ];
         return $options;
     }

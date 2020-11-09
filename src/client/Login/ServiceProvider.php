@@ -1,6 +1,6 @@
 <?php
 
-namespace LongNan\LongNanWmsClient\OrderImport;
+namespace YlWlCloud\YlWlCloudClient\Login;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
@@ -12,7 +12,7 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $app)
     {
-        $app['order_import'] = function ($app) {
+        $app['login'] = function ($app) {
             return new Client($app);
         };
     }

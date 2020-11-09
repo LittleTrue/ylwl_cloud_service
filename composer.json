@@ -18,10 +18,10 @@
         "guzzlehttp/guzzle": "^6.2",
         "adbario/php-dot-notation": "^2.0",
         "pimple/pimple": "v2.1.1",
-        "ext-json": "*"
+        "ext-json": "*",
+        "symfony/cache": "^3.3"
     },
-    "require-dev": {
-    },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "YlWlCloud\\YlWlCloudClient\\": "src/client/",

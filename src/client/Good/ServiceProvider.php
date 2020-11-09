@@ -1,6 +1,6 @@
 <?php
 
-namespace YlWlCloud\YlWlCloudClient\SearchData;
+namespace YlWlCloud\YlWlCloudClient\Good;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
@@ -12,7 +12,7 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $app)
     {
-        $app['search_data'] = function ($app) {
+        $app['good'] = function ($app) {
             return new Client($app);
         };
     }
