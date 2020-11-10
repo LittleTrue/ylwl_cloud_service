@@ -22,71 +22,68 @@ use YlWlCloud\YlWlCloudService\LoginService;
 
 $ioc_con_app = new Application([
     'BaseUri'       => 'http://asia.esl.minew.com:9191/',
-    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDQ5OTQzNTEsInN1YiI6IlRlc3QwMDMiLCJ1c2VySWQiOiJmNDMxZDE5YjBjNTUxMWViYWZmZDAyNDJjMGE4YjAwMyIsInBhc3N3b3JkIjoiNTQyMzM1NDUwMzU3YTFhNmEzNTlkOTBhNTc2NWFhYmMifQ.SErTwh7DrK0ALlOgbTYeRvpQZkt9h-DGKP9gE6Uxuvk',
+    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDUwODI1ODYsInN1YiI6IlRlc3QwMDMiLCJ1c2VySWQiOiJmNDMxZDE5YjBjNTUxMWViYWZmZDAyNDJjMGE4YjAwMyIsInBhc3N3b3JkIjoiNTQyMzM1NDUwMzU3YTFhNmEzNTlkOTBhNTc2NWFhYmMifQ.pRJN6y-wNf1zwrvKE_WM1jKjeyeBfZMirKAV7BdYu0I',
 ]);
 //新增商品服务-----
 $goodSrv = new GoodService($ioc_con_app);
-$array   = [
-    'body' => [
-        'goods' => [
-            [
-                'barcode' => '6901939721247',
-                'qrcode'  => 'http://minew.com',
-                'label1'  => '6901939721247',
-                'label2'  => 'http://minew.com',
-                'label3'  => '6901939721247',
-                'label4'  => '芬达 2.5L/瓶',
-                'label5'  => '芬达',
-                'label6'  => '5.80',
-                'label7'  => '可口',
-                'label8'  => '2.5L/瓶',
-                'label9'  => 'A',
-                'label10' => '瓶',
-                'label11' => '中国',
-                'label12' => '可口',
-            ],
-            [
-                'barcode' => '6901939721247',
-                'qrcode'  => 'http://minew.com',
-                'label1'  => '6901939721247',
-                'label2'  => 'http://minew.com',
-                'label3'  => '6901939721247',
-                'label4'  => '芬达 2.5L/瓶',
-                'label5'  => '芬达',
-                'label6'  => '5.80',
-                'label7'  => '可口',
-                'label8'  => '2.5L/瓶',
-                'label9'  => 'A',
-                'label10' => '瓶',
-                'label11' => '中国',
-                'label12' => '可口',
-            ],
-        ],
-    ],
-    'storeUuid' => '3',
-];
+// $array = [
+//     'goods' => [
+//         [
+//             'barcode' => '69019397
+//             21247',
+//             'qrcode'  => 'http://minew.com',
+//             'label1'  => '6901939721247',
+//             'label2'  => 'http://minew.com',
+//             'label3'  => '6901939721247',
+//             'label4'  => '芬达 2.5L/瓶',
+//             'label5'  => '芬达',
+//             'label6'  => '5.80',
+//             'label7'  => '可口',
+//             'label8'  => '2.5L/瓶',
+//             'label9'  => 'A',
+//             'label10' => '瓶',
+//             'label11' => '中国',
+//             'label12' => '可口',
+//         ],
+//         [
+//             'barcode' => '6901939721247',
+//             'qrcode'  => 'http://minew.com',
+//             'label1'  => '6901939721247',
+//             'label2'  => 'http://minew.com',
+//             'label3'  => '6901939721247',
+//             'label4'  => '芬达 2.5L/瓶',
+//             'label5'  => '芬达',
+//             'label6'  => '5.80',
+//             'label7'  => '可口',
+//             'label8'  => '2.5L/瓶',
+//             'label9'  => 'A',
+//             'label10' => '瓶',
+//             'label11' => '中国',
+//             'label12' => '可口',
+//         ],
+//     ],
+//     'storeUuid' => '3',
+// ];
 
-print_r(json_encode($goodSrv->addGood($array), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)); die();
+// print_r(json_encode($goodSrv->addGood($array), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)); die();
 
 //单个商品推送服务-----
 $data = [
-    'body' => [
-        'information' => [
-            'barcode' => '6901939721247',
-            'qrcode'  => 'http://minew.com',
-            'label1'  => '6901939721247',
-            'label2'  => 'http://minew.com',
-            'label3'  => '6901939721247',
-            'label4'  => '芬达 2.5L/瓶',
-            'label5'  => '芬达',
-            'label6'  => '5.80',
-            'label7'  => '炫迈',
-            'label8'  => '50.4克',
-            'label9'  => 'A',
-            'label10' => '深圳云里物里科技股份有限公司',
-            'label11' => '中国',
-            'label12' => '炫迈',
-        ],
+    'information' => [
+        'barcode' => '6901939721247',
+        'qrcode'  => 'http://minew.com',
+        'label1'  => '6901939721247',
+        'label2'  => 'http://minew.com',
+        'label3'  => '6901939721247',
+        'label4'  => '芬达 2.5L/瓶',
+        'label5'  => '芬达',
+        'label6'  => '5.80',
+        'label7'  => '炫迈',
+        'label8'  => '50.4克',
+        'label9'  => 'A',
+        'label10' => '深圳云里物里科技股份有限公司',
+        'label11' => '中国',
+        'label12' => '炫迈',
     ],
     'storeUuid' => '3',
 ];

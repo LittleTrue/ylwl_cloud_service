@@ -37,16 +37,10 @@ class Client extends BaseClient
             ]
         );
 
-        $data = $infos['body'];
-
-        foreach ($data['goods'] as $k => $v) {
-            $infos['body']['goods'][$k] = json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-        }
-
         //验证平台代码和电商代码
-        // if (!$this->credentialValidate->check($data)) {
-        //     throw new ClientError('主体配置' . $this->credentialValidate->getError());
-        // }
+        if (!$this->credentialValidate->check($infos)) {
+            throw new ClientError('主体配置' . $this->credentialValidate->getError());
+        }
 
         $this->setParams($infos);
 
@@ -66,12 +60,10 @@ class Client extends BaseClient
             ]
         );
 
-        $infos['body']['information'] = json_encode($infos['body']['information'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-
         //验证平台代码和电商代码
-        // if (!$this->credentialValidate->check($infos['body'])) {
-        //     throw new ClientError('主体配置' . $this->credentialValidate->getError());
-        // }
+        if (!$this->credentialValidate->check($infos)) {
+            throw new ClientError('主体配置' . $this->credentialValidate->getError());
+        }
 
         $this->setParams($infos);
 
