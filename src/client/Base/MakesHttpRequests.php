@@ -26,7 +26,7 @@ trait MakesHttpRequests
     public function request($method, $uri, array $options = [])
     {
         $uri = $this->app['config']->get('BaseUri') . $uri;
-var_dump($options);
+
         $response = $this->app['http_client']->request($method, $uri, $options);
 
         return $this->transform ? $this->transformResponse($response) : $response;

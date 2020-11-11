@@ -22,7 +22,7 @@ use YlWlCloud\YlWlCloudService\LoginService;
 
 $ioc_con_app = new Application([
     'BaseUri'       => 'http://asia.esl.minew.com:9191/',
-    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDUwODI1ODYsInN1YiI6IlRlc3QwMDMiLCJ1c2VySWQiOiJmNDMxZDE5YjBjNTUxMWViYWZmZDAyNDJjMGE4YjAwMyIsInBhc3N3b3JkIjoiNTQyMzM1NDUwMzU3YTFhNmEzNTlkOTBhNTc2NWFhYmMifQ.pRJN6y-wNf1zwrvKE_WM1jKjeyeBfZMirKAV7BdYu0I',
+    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDUxNDc0MzQsInN1YiI6IlRlc3QwMDMiLCJ1c2VySWQiOiJmNDMxZDE5YjBjNTUxMWViYWZmZDAyNDJjMGE4YjAwMyIsInBhc3N3b3JkIjoiNTQyMzM1NDUwMzU3YTFhNmEzNTlkOTBhNTc2NWFhYmMifQ.GgJuTN3_KdLH9YysmVL8-56KBatAnJcmH8HpBjFiZzQ',
 ]);
 //新增商品服务-----
 $goodSrv = new GoodService($ioc_con_app);
