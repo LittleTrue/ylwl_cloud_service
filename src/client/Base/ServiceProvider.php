@@ -27,6 +27,11 @@ class ServiceProvider implements ServiceProviderInterface
             return new Credential($app);
         };
 
+        //注册身份验证器
+        $app['auth_auto'] = function ($app) {
+            return new AuthAuto($app);
+        };
+
         //注册缓存服务
         $app['cache'] = function ($app) {
             return new RedisCache($app['config']['redis_client']);

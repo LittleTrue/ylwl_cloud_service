@@ -97,8 +97,9 @@ class BaseClient
         $options[RequestOptions::HEADERS] = [
             'Content-Type'  => 'application/json',
             'timestamp'     => $time,
-            'Authorization' => $this->app['config']->get('Authorization'),
+            'Authorization' => $this->json['Authorization'],
         ];
+
         return $options;
     }
 }

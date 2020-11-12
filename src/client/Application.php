@@ -15,7 +15,6 @@ class Application extends Container
      */
     protected $providers = [
         Base\ServiceProvider::class,
-        Login\ServiceProvider::class,
         Good\ServiceProvider::class,
     ];
 
