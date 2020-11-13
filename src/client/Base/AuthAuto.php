@@ -27,7 +27,7 @@ class AuthAuto
      *
      * @throws ClientError
      */
-    public function token(): string
+    public function token()
     {
         if ($value = $this->app['cache']->get($this->cacheKey())) {
             return $value;
@@ -54,7 +54,7 @@ class AuthAuto
      *
      * @param null $ttl
      */
-    public function setToken(string $token, $ttl = null): AuthAuto
+    public function setToken($token, $ttl = null)
     {
         $this->app['cache']->set($this->cacheKey(), $token, $ttl);
 
@@ -64,7 +64,7 @@ class AuthAuto
     /**
      * Get credentials.
      */
-    protected function credentials(): array
+    protected function credentials()
     {
         return [
             'username' => $this->app['config']->get('username'),
@@ -75,7 +75,7 @@ class AuthAuto
     /**
      * Get cachekey.
      */
-    protected function cacheKey(): string
+    protected function cacheKey()
     {
         return 'YlWl.Token.' . md5(json_encode($this->credentials()));
     }
