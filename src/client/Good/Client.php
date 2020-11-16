@@ -2,6 +2,7 @@
 
 namespace YlWlCloud\YlWlCloudClient\Good;
 
+use GuzzleHttp\RequestOptions;
 use YlWlCloud\YlWlCloudClient\Application;
 use YlWlCloud\YlWlCloudClient\Base\BaseClient;
 use YlWlCloud\YlWlCloudClient\Base\Exceptions\ClientError;
@@ -38,8 +39,7 @@ class Client extends BaseClient
         //使用Credential验证参数
         $this->credentialValidate->setRule(
             [
-                'goods'     => 'require',
-                'storeUuid' => 'require',
+                'goods' => 'require',
             ]
         );
 
@@ -49,6 +49,9 @@ class Client extends BaseClient
         }
 
         $infos['Authorization'] = 'Bearer ' . $this->authAuto->token();
+
+        $storeId            = $this->getStoreId($infos['Authorization']);
+        $infos['storeUuid'] = $storeId;
 
         $this->setParams($infos);
 
@@ -64,7 +67,6 @@ class Client extends BaseClient
         $this->credentialValidate->setRule(
             [
                 'information' => 'require',
-                'storeUuid'   => 'require',
             ]
         );
 
@@ -75,8 +77,31 @@ class Client extends BaseClient
 
         $infos['Authorization'] = 'Bearer ' . $this->authAuto->token();
 
+        $storeId            = $this->getStoreId($infos['Authorization']);
+        $infos['storeUuid'] = $storeId;
+
         $this->setParams($infos);
 
         return $this->httpPostJson('V2/good/brush');
+    }
+
+    /**
+     * 获取门店信息.
+     */
+    private function getStoreId($authorization)
+    {
+        $store = $this->request(
+            'POST',
+            'V2/pub/store/query',
+            [
+                RequestOptions::HEADERS => [
+                    'Content-Type'  => 'application/json',
+                    'timestamp'     => time(),
+                    'Authorization' => $authorization,
+                ],
+            ]
+        );
+
+        return $store['body'][0]['uuid'];
     }
 }
